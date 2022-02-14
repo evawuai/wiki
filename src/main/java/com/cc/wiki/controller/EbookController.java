@@ -1,5 +1,8 @@
 package com.cc.wiki.controller;
 
+import com.cc.wiki.api.CommonResp;
+import com.cc.wiki.api.EbookReq;
+import com.cc.wiki.api.EbookResp;
 import com.cc.wiki.domain.Ebook;
 import com.cc.wiki.service.EbookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +22,10 @@ public class EbookController {
 
 
     @RequestMapping("/list")
-    public List<Ebook> ebookList(){
-        return ebookService.ebookList();
+    public CommonResp ebookList(EbookReq req){
+        CommonResp<List<EbookResp>> resp = new CommonResp<>();
+        List<EbookResp> list = ebookService.ebookList(req);
+        resp.setContent(list);
+        return resp;
     }
 }

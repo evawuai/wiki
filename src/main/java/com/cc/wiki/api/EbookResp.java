@@ -1,6 +1,6 @@
-package com.cc.wiki.domain;
+package com.cc.wiki.api;
 
-public class Ebook {
+public class EbookResp {
     private Long id;
 
     private String name;
